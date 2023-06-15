@@ -2,7 +2,7 @@ import { Request, Response } from "express";
 import { IUseCase } from "../../../../implementations/UseCase/IUseCase";
 import { IControllers } from "./IControllers";
 import { HttpResponse } from "../../adapters/IAdapters";
-import { okResponse, serverError } from "../../../../infra/http/helper";
+import { okResponse, unprocessableEntityError } from "../../../../infra/http/helper";
 
 export class CreateUsersController{
   private createUsersUseCase: IUseCase;
@@ -16,6 +16,7 @@ export class CreateUsersController{
   ): Promise<HttpResponse> {
     try {
       const { data } = httpRequest.body;
+      if(!data.username || !data.password || !data.email) throw unprocessableEntityError("You need to pass all params to perform this action")
   
       const response = await this.createUsersUseCase.create(data);
   

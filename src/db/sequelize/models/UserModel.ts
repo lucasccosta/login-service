@@ -34,16 +34,6 @@ UsersModel.init(
       defaultValue: DataTypes.NOW,
       allowNull: false,
     },
-    updated_at: {
-      type: DataTypes.DATE,
-      defaultValue: DataTypes.NOW,
-      allowNull: false,
-    },
-    removed_at: {
-      type: DataTypes.DATE,
-      defaultValue: DataTypes.NOW,
-      allowNull: false,
-    }
   }, 
   {
     tableName: "users",

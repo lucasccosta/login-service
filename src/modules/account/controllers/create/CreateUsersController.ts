@@ -1,7 +1,6 @@
 import { Request, Response } from "express";
 import { IUseCase } from "../../../../implementations/UseCase/IUseCase";
-import { IControllers } from "./IControllers";
-import { HttpResponse } from "../../adapters/IAdapters";
+import { HttpResponse } from "../../../../infra/DTOs/IAdapters";
 import { okResponse, unprocessableEntityError } from "../../../../infra/http/helper";
 
 export class CreateUsersController{

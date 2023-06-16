@@ -21,3 +21,8 @@ export const unprocessableEntityError = (message: string): HttpResponse => ({
   statusCode: 422,
   body: new ServerError({message})
 })
+
+export const unauthorizedError = (message: string): HttpResponse => ({
+  statusCode: 401,
+  body: new ServerError({message})
+})

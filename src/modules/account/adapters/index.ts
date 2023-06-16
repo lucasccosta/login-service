@@ -1,7 +1,7 @@
 import { Request, Response } from 'express'
 import { CreateUsersController } from '../controllers/create/CreateUsersController'
 
-export const adaptRoute = (createUsersController: CreateUsersController) => {
+export const createUsersAdapter = (createUsersController: CreateUsersController) => {
   return async (request: Request, response: Response) => {
 
     const httpResponse = await createUsersController.handle(request)

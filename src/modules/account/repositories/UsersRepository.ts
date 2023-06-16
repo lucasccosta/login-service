@@ -9,19 +9,19 @@ export class UsersRepository implements IUsersRepository {
   async createUser({ username, email, password }: ICreateUsersRequest): Promise<User> {
     console.log("params: ", username, email, password)
     const user =  await this.userModel.create({username, email, password});
-    return new User({username: user.dataValues.username, email: user.dataValues.email, password: user.dataValues.password, createdAt: user.dataValues.created_at})
+    return new User({id: user.dataValues.id, username: user.dataValues.username, email: user.dataValues.email, password: user.dataValues.password, createdAt: user.dataValues.createdAt})
   }
 
   async getUsers (): Promise<User[]> {
     const users = await this.userModel.findAll();
-    return users.map(user => new User({username: user.dataValues.username, email: user.dataValues.email, password: user.dataValues.password, createdAt: user.dataValues.created_at}))
+    return users.map(user => new User({id: user.dataValues.id, username: user.dataValues.username, email: user.dataValues.email, password: user.dataValues.password, createdAt: user.dataValues.createdAt}))
   }
 
   async getUserByEmail(email): Promise<User> {
     console.log(email)
     const user =  await this.userModel.findOne({where: { email } });
     if(user){
-      return new User({username: user.dataValues.username, email: user.dataValues.email, password: user.dataValues.password, createdAt: user.dataValues.created_at});
+      return new User({id: user.dataValues.id, username: user.dataValues.username, email: user.dataValues.email, password: user.dataValues.password, createdAt: user.dataValues.createdAt});
     }
     return
   }
@@ -30,7 +30,7 @@ export class UsersRepository implements IUsersRepository {
     const user =  await this.userModel.findOne({where: { username } });
     console.log(username)
     if(user) {
-      return new User({username: user.dataValues.username, email: user.dataValues.email, password: user.dataValues.password, createdAt: user.dataValues.created_at});
+      return new User({id: user.dataValues.id, username: user.dataValues.username, email: user.dataValues.email, password: user.dataValues.password, createdAt: user.dataValues.createdAt});
     }
     return
   }

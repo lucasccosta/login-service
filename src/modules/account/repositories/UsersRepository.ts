@@ -1,4 +1,4 @@
-import { UsersModel } from "../../../db/sequelize/models/UserModel";
+import { UsersModel } from "../../../config/db/sequelize/models/UserModel";
 import { ICreateUsersRequest } from "../DTOs/IUsersDTO";
 import { IUsersRepository } from "./interfaces/IUsersRepository";
 import { User } from "../domain/Users";

@@ -1,5 +1,5 @@
-import { Model, DataTypes } from "sequelize";
-import { sequelize } from "../../../config/db-sequelize";
+import { Model, DataTypes } from "sequelize"
+import { sequelize } from "../../../db-sequelize"
 
 class UsersModel extends Model {}
 
@@ -8,19 +8,19 @@ UsersModel.init(
     id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
-      defaultValue: DataTypes.UUIDV4,
+      defaultValue: DataTypes.UUIDV4
     },
-    username: {
+    username:{
       type: DataTypes.STRING,
       allowNull: false,
       unique: true,
     },
-    email: {
+    email:{
       type: DataTypes.STRING,
       allowNull: false,
       unique: true,
     },
-    password: {
+    password:{
       type: DataTypes.STRING,
       allowNull: false,
     },
@@ -34,12 +34,12 @@ UsersModel.init(
       defaultValue: DataTypes.NOW,
       allowNull: false,
     },
-  },
+  }, 
   {
     tableName: "users",
     timestamps: false,
-    sequelize,
+    sequelize
   }
-);
+  )
 
-export { UsersModel };
+export { UsersModel}

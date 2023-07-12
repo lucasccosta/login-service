@@ -1,5 +1,5 @@
 import { Sequelize } from "sequelize-typescript";
-import { UsersModel } from "../../../../db/sequelize/models/UserModelInMemory";
+import { UsersModel } from "../../../../config/db/sequelize/models/UserModelInMemory";
 import { CreateUsersController } from "./CreateUsersController";
 import { UsersRepository } from "../../repositories/UsersRepository";
 import { CreateUsersUseCase } from "./CreateUsersUseCase";
